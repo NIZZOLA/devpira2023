@@ -1,0 +1,20 @@
+
+##
+POST https://localhost:7285/api/mechanic
+content-type: application/json
+
+{
+  "vehicleModel": "Fusca 1600 L",
+  "problem": "escapamento solta estouros quando anda"
+}
+
+
+###
+
+POST https://localhost:7285/api/mechanic
+content-type: application/json
+
+{
+  "vehicleModel": "Marea",
+  "problem": "motor morre no transito, tem problema para dar partida, vazamento de óleo, soltando fumaça"
+}

@@ -1,0 +1,8 @@
+### place info
+POST https://localhost:7285/api/travel/placeinformation
+content-type: application/json
+
+{
+  "placeName": "Fórum Romano",
+  "geoReference": "Roma-It"
+}

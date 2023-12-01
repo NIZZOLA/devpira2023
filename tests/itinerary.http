@@ -1,0 +1,10 @@
+
+### Obtem informações da localidade
+POST https://localhost:7285/api/travel/itinerary
+content-type: application/json
+
+{
+  "name": "Roma",
+  "days": 7
+}
+

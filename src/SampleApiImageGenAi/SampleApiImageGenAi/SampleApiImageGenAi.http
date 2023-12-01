@@ -1,0 +1,6 @@
+@SampleApiImageGenAi_HostAddress = http://localhost:5155
+
+POST {{SampleApiImageGenAi_HostAddress}}/generateimage/
+Accept: application/json
+
+###
