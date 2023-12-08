@@ -21,19 +21,15 @@ public class MechanicService : IMechanicService
         IList<ChatMessage> messages = new List<ChatMessage>();
 
         messages.Add(new ChatMessage(ChatRole.System, PromptConstants.MechanicQuestion));
-        messages.Add(new ChatMessage(ChatRole.System, PromptConstants.Troll));
+        messages.Add(new ChatMessage(ChatRole.System, PromptConstants.JokeAnswer));
         string question = $"tenho um veículo modelo: {request.VehicleModel} com o problema {request.Problem} ";
 
         messages.Add(new ChatMessage(ChatRole.User, question));
 
-        var chatCompletionsOptions = new ChatCompletionsOptions(messages);
+        var chatCompletionsOptions = new ChatCompletionsOptions(_config.DeploymentModel, messages);
 
-        Response<ChatCompletions> response = client.GetChatCompletions(
-            deploymentOrModelName: _config.DeploymentModel,
-            chatCompletionsOptions);
+        Response<ChatCompletions> response = client.GetChatCompletions(chatCompletionsOptions);
 
-        Console.WriteLine(response.Value.Choices[0].Message.Content);
-        var jsonResponse = JsonSerializer.Deserialize<List<MechanicSolutionModel>>(response.Value.Choices[0].Message.Content);
-        return jsonResponse;
+        return JsonSerializer.Deserialize<List<MechanicSolutionModel>>(response.Value.Choices[0].Message.Content);
     }
 }

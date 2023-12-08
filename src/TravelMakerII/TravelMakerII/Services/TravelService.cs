@@ -26,11 +26,9 @@ public class TravelService : ITravelService
 
         messages.Add(new ChatMessage(ChatRole.User, question));
 
-        var chatCompletionsOptions = new ChatCompletionsOptions(messages);
+        var chatCompletionsOptions = new ChatCompletionsOptions(_config.DeploymentModel , messages);
 
-        Response<ChatCompletions> response = client.GetChatCompletions(
-            deploymentOrModelName: _config.DeploymentModel,
-            chatCompletionsOptions);
+        Response<ChatCompletions> response = client.GetChatCompletions(chatCompletionsOptions);
 
         Console.WriteLine(response.Value.Choices[0].Message.Content);
         var jsonResponse = JsonSerializer.Deserialize<List<DestinationModel>>(response.Value.Choices[0].Message.Content);
@@ -48,11 +46,9 @@ public class TravelService : ITravelService
 
         messages.Add(new ChatMessage(ChatRole.User, question));
 
-        var chatCompletionsOptions = new ChatCompletionsOptions(messages);
+        var chatCompletionsOptions = new ChatCompletionsOptions(_config.DeploymentModel, messages);
 
-        Response<ChatCompletions> response = client.GetChatCompletions(
-            deploymentOrModelName: _config.DeploymentModel,
-            chatCompletionsOptions);
+        Response<ChatCompletions> response = client.GetChatCompletions(chatCompletionsOptions);
 
         Console.WriteLine(response.Value.Choices[0].Message.Content);
         var jsonResponse = JsonSerializer.Deserialize<PlaceInfomation>(response.Value.Choices[0].Message.Content);

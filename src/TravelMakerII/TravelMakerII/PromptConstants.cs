@@ -38,7 +38,7 @@ indique uma solução para o problema ser realizado em residência,A sua respost
    } 
   ]";
 
-    public static string Troll = "Mas se o veículo for um Peugeot ou um Marea você deve fazer uma piada, dizendo 'se você tiver fé, reze pois este carro costuma ser uma bomba'";
+    public static string JokeAnswer = "Mas se o veículo for um Peugeot ou um Marea você deve fazer ao final da solução uma piada similar à esta: 'se você tiver fé, reze pois este carro costuma ser uma bomba'";
 
     public static string MechanicPrepareQuestion = "@\"você atuará como um mecânico, falando das soluções de problemas que forem informados sobre o veículo";
     public static string MechanicApiResponse = "descreva o que poderá se feito para solucionar o problema ver em: {0} em {1} e se tiver um site onde possa ver mais informações exiba no final";
